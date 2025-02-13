@@ -32,8 +32,8 @@ Here are the steps for preparing the microSD card:
   1. copy the files in the `boot/` directory to the boot partition
   1. copy the `dietpi-wifi.txt.sample` to `dietpi-wifi.txt`
   1. customize `dietpi-wifi.txt` as needed (you need at least one working WiFi access entry)
-    1. the example of index 0 is specific to the TKU campus
-    1. the example of index 1 is for general WiFi WPA2 access
+     1. the example of index 0 is specific to the TKU campus
+     1. the example of index 1 is for general WiFi WPA2 access
   1. plug the USB cable to the USB port (**NOT** the PWR port) of the board
   1. plug the USB cable to the host computer
   1. re-plug the USB cable when the power LED is turned off (the 1st time)
@@ -46,4 +46,5 @@ Here are the steps for preparing the microSD card:
 
 ## Verified Versions
 
+  - DietPi 9.10.0
   - DietPi 9.9.0
