@@ -6,7 +6,7 @@ To install the OS to a Raspberry Pi Zero 2 W in a *true* headless way.
 
 ## Usage Scenario
 
-I teach a course in which the students uses Raspberry Pi Zero 2 W for practicing Linux and project development.
+I teach a course in which the students use Raspberry Pi Zero 2 W for practicing Linux and project development.
 The configuration is
   - headless (no display and keyboard attached to the board)
   - minimum installation of the OS
@@ -39,9 +39,9 @@ Here are the steps for preparing the microSD card:
   1. re-plug the USB cable when the power LED is turned off (the 1st time)
   1. re-plug the USB cable when the power LED is turned off (the 2nd time)
   1. use a terminal emulator to access the serial console
-    - for example, PuTTY
-    - example device: /dev/ttyACM0 on Linux
-    - example device: COM3 on Windows
+     - for example, PuTTY
+     - example device: /dev/ttyACM0 on Linux
+     - example device: COM3 on Windows
   1. the default username/password is dietpi/dietpi 
 
 ## Verified Versions
