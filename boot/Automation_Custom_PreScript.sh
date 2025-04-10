@@ -16,7 +16,7 @@ EOF
 }
 
 # ensure the USB serial is loaded
-if [ -n `grep "g_serial" /etc/modules` ]; then
+if [ -z "`grep g_serial /etc/modules`" ]; then
   echo dwc2 >> /etc/modules
   echo g_serial >> /etc/modules
   echo "dtoverlay=dwc2" >> /boot/config.txt

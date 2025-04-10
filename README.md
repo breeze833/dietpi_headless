@@ -46,5 +46,6 @@ Here are the steps for preparing the microSD card:
 
 ## Verified Versions
 
+  - DietPi 9.11.2
   - DietPi 9.10.0
   - DietPi 9.9.0
