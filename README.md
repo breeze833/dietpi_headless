@@ -31,12 +31,25 @@ Here are the steps for preparing the microSD card:
   1. copy the files in the `boot/` directory to the boot partition
   1. plug the USB cable to the USB port (**NOT** the PWR port) of the board
   1. plug the USB cable to the host computer
-  1. re-plug the USB cable when the power LED is turned off
+  1. re-plug the USB cable when the power LED is turned off (the 1st time)
   1. use a terminal emulator to access the serial console
      - for example, PuTTY
-     - example device: /dev/ttyACM0 on Linux
-     - example device: COM3 on Windows
-  1. the default username/password is dietpi/dietpi 
+     - example device: `/dev/ttyACM0` on Linux
+     - example device: `COM3` on Windows
+     - There are a few bootstrap tasks to complete. It may take a few minutes to reach the login prompt.
+  1. the default username/password is `root`/`dietpi`
+     - configure the Internet access
+     - finish the base installation
+  1. re-plug the USB cable when the power LED is turned off (the 2nd time)
+     - boot into the normal mode
+     - suggested login username is `dietpi`; the password is the one specified during the installation process
+
+## Features
+
+The USB gadget would appear as a composite device including the following functions:
+  1. serial device (configured as a login console)
+  1. network device (configured with link-local address, default `169.254.1.1`)
+  1. mass-storage device (optional, you may create `/var/lib/usb\_storage.bin` as the storage space)
 
 ## Verified Versions
 
