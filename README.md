@@ -49,7 +49,7 @@ Here are the steps for preparing the microSD card:
 The USB gadget would appear as a composite device including the following functions:
   1. serial device (configured as a login console)
   1. network device (configured with link-local address, default `169.254.1.1`)
-  1. mass-storage device (optional, you may create `/var/lib/usb\_storage.bin` as the storage space)
+  1. mass-storage device (optional, you may create `/var/lib/usb_storage.bin` as the storage space)
 
 ## Verified Versions
 
