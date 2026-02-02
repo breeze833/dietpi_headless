@@ -58,4 +58,5 @@ The USB gadget would appear as a composite device including the following functi
 ## Story Article
 
 English Version: [The Evolution of a Headless DietPi Setup: From Full Automation to Intuitive Interaction](https://medium.com/@breeze833/the-evolution-of-a-headless-dietpi-setup-c6c6ad3a58a6)
+
 Chinese Version: [打造 Headless DietPi 教學環境的進化之路：從全自動到更直觀的技術轉型](https://medium.com/@breeze833/打造-headless-dietpi-教學環境的進化之路-3d576e8df604)
