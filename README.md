@@ -53,7 +53,7 @@ The USB gadget would appear as a composite device including the following functi
 
 ## Verified Versions
 
-  - DietPi 10.0.1
+  - DietPi 10.1
 
 ## Story Article
 
