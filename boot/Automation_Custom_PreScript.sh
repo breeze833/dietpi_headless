@@ -69,11 +69,27 @@ if [ -e \$FILE ]; then
   ln -s functions/mass_storage.usb0 configs/c.1/
 fi
 
+# --- 2.5 OS Descriptors (WCID) for Windows ---
+# This tells Windows to use the NCM driver automatically
+mkdir -p os_desc
+echo 1 > os_desc/use
+echo 0xcd > os_desc/b_vendor_code
+echo "MSFT100" > os_desc/qw_sign
+
+# Link the NCM function to the OS descriptor
+# This associates the first configuration (c.1) with the OS descriptor
+ln -s configs/c.1 os_desc/c.1
+
+# Specifically flag the NCM function for Windows
+# We use the ncm.usb0 function as the primary interface for the OS descriptor
+# Note: In composite gadgets, Windows usually applies the first compatible ID it finds
+ln -s functions/ncm.usb0 os_desc/g1
+
 # 3. Enable
 ls /sys/class/udc > UDC
 
 # 4. access from gadget side to wakeup the host side (tricky)
-echo -e "\\n\\n" > /dev/ttyGS0
+echo -e "\\n\\n" > /dev/ttyGS0 &
 EOF
 
 cat << EOF > /etc/systemd/system/usb-gadget.service
