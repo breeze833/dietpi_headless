@@ -48,12 +48,12 @@ Here are the steps for preparing the microSD card:
 
 The USB gadget would appear as a composite device including the following functions:
   1. serial device (configured as a login console)
-  1. network device (configured with link-local address, default `169.254.1.1`)
+  1. network device (configured with link-local address, prefer `169.254.1.1`)
   1. mass-storage device (optional, you may create `/var/lib/usb_storage.bin` as the storage space)
 
 ## Verified Versions
 
-  - DietPi 10.1 10.3
+  - DietPi 10.1 10.3 10.4
 
 ## Story Article
 
