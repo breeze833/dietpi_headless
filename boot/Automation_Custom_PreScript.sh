@@ -58,7 +58,26 @@ echo "02:22:33:44:55:66" > functions/ncm.usb0/host_addr
 echo "02:22:33:44:55:67" > functions/ncm.usb0/dev_addr  
 ln -s functions/ncm.usb0 configs/c.1/
 
-# --- FUNCTION 3: Mass Storage ---
+# --- FUNCTION 3: Keyboard (HID) ---
+ENABLE_HID_KBD=0
+if [ \$ENABLE_HID_KBD == 1 ]; then
+  # This creates the /dev/hidg0 device node
+  mkdir -p functions/hid.usb0
+
+  # Protocol 1 = Keyboard, Subclass 1 = Boot Interface
+  echo 1 > functions/hid.usb0/protocol
+  echo 1 > functions/hid.usb0/subclass
+  echo 8 > functions/hid.usb0/report_length
+
+  # Standard 6-key rollover keyboard report descriptor
+  # This hex blob defines the device as a standard HID keyboard
+  echo -ne "\\x05\\x01\\x09\\x06\\xa1\\x01\\x05\\x07\\x19\\xe0\\x29\\xe7\\x15\\x00\\x25\\x01\\x75\\x01\\x95\\x08\\x81\\x02\\x95\\x01\\x75\\x08\\x81\\x03\\x95\\x05\\x75\\x01\\x05\\x08\\x19\\x01\\x29\\x05\\x91\\x02\\x95\\x01\\x75\\x03\\x91\\x03\\x95\\x06\\x75\\x08\\x15\\x00\\x25\\x65\\x05\\x07\\x19\\x00\\x29\\x65\\x81\\x00\\xc0" > functions/hid.usb0/report_desc
+
+  # Link the HID function to the configuration
+  ln -s functions/hid.usb0 configs/c.1/
+fi
+
+# --- FUNCTION 4: Mass Storage ---
 FILE=/var/lib/usb_storage.bin
 if [ -e \$FILE ]; then
   mkdir -p functions/mass_storage.usb0
@@ -87,6 +106,11 @@ ln -s functions/ncm.usb0 os_desc/g1
 
 # 3. Enable
 ls /sys/class/udc > UDC
+sleep 1
+if [ \$ENABLE_HID_KBD == 1 ]; then
+  chown root:input /dev/hidg0
+  chmod 660 /dev/hidg0
+fi
 
 # 4. access from gadget side to wakeup the host side (tricky)
 echo -e "\\n\\n" > /dev/ttyGS0 &
