@@ -2,7 +2,7 @@
 
 ## Goal
 
-To install the OS to a Raspberry Pi Zero 2 W in a *true* headless way.
+To install the OS to a Raspberry Pi Zero 2 W in a *true* headless way. It works on RPi4 and RPi5 (The USB-C port can also be configured for gadget communication).
 
 ## Usage Scenario
 
